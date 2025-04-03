@@ -1,86 +1,44 @@
 # 📊 Credit Scoring App com Streamlit
 
-Este é um aplicativo interativo para análise de risco de crédito, construído com Streamlit, usando um modelo de regressão logística treinado com PyCaret.
-
-O objetivo é prever a probabilidade de inadimplência (`mau = 1`) com base em dados socioeconômicos dos clientes e fornecer visualizações claras, métricas de performance e explicabilidade do modelo.
-
----
-
-## ⚙️ Funcionalidades
-
-- Upload de base de dados `.ftr` com informações dos clientes
-- Previsão de inadimplência com base em um modelo treinado
-- Visualização de resultados e scores
-- Análise exploratória dos dados
-- Métricas de classificação (Accuracy, Recall, F1)
-- Curva ROC e AUC
-- Explicabilidade via coeficientes da regressão
-- Insights estratégicos por tipo de renda e escolaridade
-- Baixar resultado e resetar análise
+✅ **Acesse o app online agora:**  
+🔗 [https://credit-scoring-app-streamlit.onrender.com](https://credit-scoring-app-streamlit.onrender.com)
 
 ---
 
-## 🎥 Demonstração do App
+Este projeto realiza uma análise de risco de crédito utilizando um modelo de regressão logística treinado com dados públicos. Desenvolvido com Streamlit, ele é ideal para fins de demonstração e portfólio.
 
-<!-- Substitua o link abaixo pelo seu vídeo -->
-[▶️ Clique aqui para assistir à demonstração](https://www.youtube.com/watch?v=SEU_VIDEO_ID)
+### 🧠 Funcionalidades principais:
+- Upload de dados no formato `.ftr`
+- Carregamento de uma base de exemplo leve
+- Geração de previsões de inadimplência (`mau=1`)
+- Visualização de métricas, curva ROC e explicabilidade com coeficientes do modelo
+- Interface com navegação por seções e filtros interativos
 
----
-
-## 🚀 Como rodar localmente
-
-```bash
-# Clone o repositório
-git clone https://github.com/Barbo541/credit-scoring-app-streamlit.git
-cd credit-scoring-app-streamlit
-
-# (Recomendado) Crie um ambiente virtual
-conda create -n credit-env python=3.10 -y
-conda activate credit-env
-
-# Instale as dependências
-pip install -r requirements.txt
-
-# Rode o app
-streamlit run app_credit_scoring.py
+### 📁 Estrutura do repositório:
+```
+📦 credit-scoring-app-streamlit
+├── credit_scoring.py              # Código principal do app Streamlit
+├── model_final.pkl                # Modelo final treinado com sklearn
+├── credit-score-exemplo-pequeno.ftr  # Base de exemplo otimizada
+├── requirements.txt              # Dependências do projeto
+├── demo/
+│   └── streamlit-demo.webm       # Gravação da demo do app (opcional)
+└── notebooks/
+    └── CreditScoring.Proj.ipynb # Notebook de análise e construção do modelo
 ```
 
----
-
-## ☁️ Deploy no Render
-
-1. Faça login no [Render](https://render.com)
-2. Crie um novo projeto a partir do seu repositório GitHub
-3. Use o seguinte comando de start:  
-```bash
-streamlit run app_credit_scoring.py
-```
-4. Certifique-se de que o arquivo `requirements.txt` está no repositório
+### 🚀 Tecnologias utilizadas:
+- `Python`, `pandas`, `scikit-learn`, `Streamlit`
+- Visualizações com `matplotlib` e `seaborn`
 
 ---
 
-## 🧪 Tecnologias Utilizadas
+📌 **Observações**:
+- A base completa foi substituída por uma amostra menor para melhor performance no deploy.
+- O modelo utiliza transformações como PCA, padronização e agrupamento de categorias.
 
-- [Streamlit](https://streamlit.io/)
-- [Scikit-learn](https://scikit-learn.org/)
-- [PyCaret (no notebook)](https://pycaret.org/)
-- Pandas, Seaborn, Matplotlib
-
----
-
-## 📁 Organização dos Arquivos
-
-```
-.
-├── app_credit_scoring.py       # Código principal do app
-├── model_final.pkl             # Modelo treinado com regressão logística
-├── requirements.txt            # Dependências do projeto
-├── .gitignore                  # Arquivos ignorados no versionamento
-└── README.md                   # Documentação
-```
+Sinta-se à vontade para clonar, testar localmente ou fazer fork para adaptar ao seu portfólio!
 
 ---
 
-## 📄 Licença
-
-Este projeto foi desenvolvido para fins educacionais como parte de um portfólio de ciência de dados.
+🔗 Repositório original: [github.com/Barbo541/credit-scoring-app-streamlit](https://github.com/Barbo541/credit-scoring-app-streamlit)
