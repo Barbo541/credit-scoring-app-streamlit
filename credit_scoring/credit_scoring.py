@@ -28,8 +28,24 @@ selecao = st.sidebar.selectbox("📑 Selecione uma etapa do projeto:", [
 selecao = selecao.split("-", 1)[-1].strip()
 
 # 📥 Upload e Previsão
+with st.expander("📂 Ou use a base de exemplo pública"):
+    if st.button("📌 Carregar base de exemplo (credit-score.ftr)"):
+        try:
+            df_raw = pd.read_feather("credit-score.ftr")
+            st.success(f"Base de exemplo carregada: {df_raw.shape[0]} linhas × {df_raw.shape[1]} colunas")
+            st.dataframe(df_raw.head())
+            st.session_state['df_raw'] = df_raw
+            st.session_state['go_to_resultados'] = True
+        except Exception as e:
+            st.error(f"Erro ao carregar a base de exemplo: {e}")
+
 if selecao == "📥 Upload e Previsão":
     st.subheader("📥 Upload e Previsão")
+
+    if st.session_state.get('go_to_resultados'):
+        st.success("Base carregada com sucesso. Vá para a aba 📊 Resultados.")
+        del st.session_state['go_to_resultados']
+
     uploaded_file = st.file_uploader("Envie a base de dados (.ftr)", type=["ftr"])
     if uploaded_file is not None:
         try:
@@ -199,6 +215,8 @@ elif selecao == "📣 Insights Estratégicos":
 # 📚 Sobre o Modelo
 elif selecao == "📚 Sobre o Modelo":
     st.subheader("📚 Sobre o Modelo")
+    st.markdown("📺 **Demonstração do App em Vídeo:**")
+    st.video("https://github.com/Barbo541/credit-scoring-app-streamlit/raw/main/demo/streamlit-demo.webm")
     st.markdown("""
     Este modelo foi treinado com Regressão Logística usando um pipeline completo com:
     - Imputação de dados
@@ -215,6 +233,7 @@ elif selecao == "📚 Sobre o Modelo":
     if st.button("🔁 Resetar análise"):
         st.session_state.clear()
         st.rerun()
+
 
 
 
